@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+export const runtime = 'nodejs';
+export const maxDuration = 10;
+
 const assetTypes=new Set(['Operating business','Intellectual property','Digital assets','Mixed portfolio','Creator / royalty income']);
 
 export async function POST(request:Request){
@@ -10,7 +13,7 @@ export async function POST(request:Request){
   const endpoint=process.env.ATLAS_REVIEW_ROUTER_URL;
   const token=process.env.ATLAS_REVIEW_ROUTER_TOKEN;
   if(!endpoint||!token) return NextResponse.json({error:'Professional review routing is not configured yet.'},{status:503});
-  const upstream=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`},body:JSON.stringify({...record,lawfulPurpose:true,source:'atlas-assets'}),cache:'no-store'});
+  const upstream=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${token}`},body:JSON.stringify({...record,lawfulPurpose:true,source:'atlas-assets'}),cache:'no-store',signal:AbortSignal.timeout(8000)});
   if(!upstream.ok) return NextResponse.json({error:'Secure routing is temporarily unavailable.'},{status:502});
   return NextResponse.json({ok:true},{status:202});
 }
