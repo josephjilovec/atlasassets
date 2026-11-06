@@ -2,7 +2,7 @@
 
 Cross-border structure-modeling and professional-coordination concept for founders, companies, intellectual property and digital-asset operations.
 
-Public website: https://atlasassets.josephjilovec.com/
+Public website: https://atlasassets.summithillholdings.com/
 
 ## Public experience
 

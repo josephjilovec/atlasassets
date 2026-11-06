@@ -4,6 +4,7 @@ import './globals.css';
 import './performance.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://atlasassets.summithillholdings.com"),
   title: { default: 'Atlas Assets', template: '%s | Atlas Assets' },
   description: 'Cross-border structure simulation and professional coordination for globally distributed companies, intellectual property, and digital-asset operations.'
 };
@@ -11,5 +12,5 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en"><body><header><Link className="brand" href="/"><span>Atlas</span><b>Assets</b></Link><nav><Link href="/jurisdictions">Jurisdictions</Link><Link href="/structures">Structures</Link><Link href="/#controls">Controls</Link><Link className="nav-cta" href="/simulation">Run structure review</Link></nav></header>{children}<footer>
 <div><strong>Atlas Assets</strong><span>Cross-border structure before cross-border movement.</span></div><p>Scenario modeling and professional coordination only. Legal, tax, securities, fiduciary, banking, and regulated execution remain with qualified professionals.</p>
-</footer></body></html>;
+<p style={{ gridColumn: "1 / -1", margin: 0, padding: "16px 24px", fontSize: "12px", lineHeight: 1.6 }}><a href="https://summithillholdings.com/" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: "3px" }}>Summit Hill Holdings</a></p></footer></body></html>;
 }
